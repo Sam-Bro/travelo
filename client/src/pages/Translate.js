@@ -1,36 +1,71 @@
-import React from 'react';
-var unirest = require("unirest");
+import React, { useState } from "react";
+import { Row, Col, Form } from "react-bootstrap";
+import API from "../utils/translateApi";
+import SearchInput from "../components/TranslateComp";
+import { SetLang } from "../components/setLangComp";
 
-var req = unirest("POST", "https://google-translate1.p.rapidapi.com/language/translate/v2");
+export default function Search() {
+  const [search, setSearch] = useState("");
+  const [translations, setTranslation] = useState([]);
 
-req.headers({
-	"x-rapidapi-host": "google-translate1.p.rapidapi.com",
-	"x-rapidapi-key": "8968730aa8mshccd0052154d0957p1e3e1cjsn7827894c698a",
-	"accept-encoding": "application/gzip",
-	"content-type": "application/x-www-form-urlencoded",
-	"useQueryString": true
-});
+  const onSave = async (translation) => {
+    API.saveTranslation(translation);
+  };
 
-req.form({
-	"source": "en",
-	"q": "Hello, world!",
-	"target": "es"
-});
+  const onSearch = async (evt) => {
+    evt.preventDefault();
 
-req.end(function (res) {
-	if (res.error) throw new Error(res.error);
+    const results = await API.getTranslate(search);
+    const translations = results.data.map((translation) => ({
+      id: translation.id,
+      translationRes: translation.data.translations[0].translatedText,
+      onSave,
+    }));
 
-	console.log(res.body);
-});
+    console.log("results: " + results);
+    setTranslation(translations);
+  };
 
-class Translate extends React.Component {
-    render() {
-        return (
-            <div>
-                <h1>translate</h1>
-            </div>
-        )
-    }
+  return (
+    <>
+      <Row>
+        <Col>
+          <SearchInput
+            search={search}
+            onSearchChange={setSearch}
+            onSearch={onSearch}
+          />
+        </Col>
+        <Col>
+        <LangParent/>
+        </Col>
+      </Row>
+      <Row>
+        <Col>{/* <BookList translations={translations} /> */}</Col>
+      </Row>
+    </>
+  );
 }
 
-export default Translate
+export class LangParent extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { language: 'am' };
+    
+    this.changeLanguage = this.changeLanguage.bind(this);
+  }
+  
+  changeLanguage(newLanguage) {
+    this.setState({
+      language: newLanguage
+    });
+  }
+
+  render() {
+    return <SetLang language={this.state.language} onChange={this.changeLanguage} />
+  }
+}
+
+
+// export default Translate
