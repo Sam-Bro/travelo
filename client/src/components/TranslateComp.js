@@ -1,7 +1,8 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
+import { SetLang } from "../components/setLangComp";
 
-export default function SearchInput({ search, onSearchChange, onSearch}) {
+export default function SearchInput({ search, onSearchChange, onSearch, Language}) {
   return (
     <Form onSubmit={onSearch}>
       <Form.Group controlId="translate-in">
@@ -11,10 +12,11 @@ export default function SearchInput({ search, onSearchChange, onSearch}) {
           placeholder="input the phrase you want to translate"
           onChange={evt => onSearchChange(evt.target.value)}
         />
-      </Form.Group>
+      </Form.Group >
       <Button variant="primary" type="submit">
         Search
       </Button>
     </Form>
   );
 }
+

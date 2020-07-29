@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Row, Col, Form } from "react-bootstrap";
+
 import API from "../utils/translateApi";
 import SearchInput from "../components/TranslateComp";
 import { SetLang } from "../components/setLangComp";
@@ -7,6 +8,7 @@ import { SetLang } from "../components/setLangComp";
 export default function Search() {
   const [search, setSearch] = useState("");
   const [translations, setTranslation] = useState([]);
+  const [userLang, setUserLang] =useState("es")
 
   const onSave = async (translation) => {
     API.saveTranslation(translation);
@@ -15,15 +17,14 @@ export default function Search() {
   const onSearch = async (evt) => {
     evt.preventDefault();
 
-    const results = await API.getTranslate(search);
-    const translations = results.data.map((translation) => ({
-      id: translation.id,
-      translationRes: translation.data.translations[0].translatedText,
-      onSave,
-    }));
+    const results = await API.getTranslate(search, userLang);
+    console.log(results);
+    const translations = results.data.translations;
 
-    console.log("results: " + results);
+    console.log("trans: " , translations);
     setTranslation(translations);
+
+    // translatedText: "Hola", detectedSourceLanguage: "en"
   };
 
   return (
@@ -37,33 +38,30 @@ export default function Search() {
           />
         </Col>
         <Col>
-        <LangParent/>
+        <LangParent userLang={userLang} setUserLang={setUserLang}/>
         </Col>
       </Row>
       <Row>
-        <Col>{/* <BookList translations={translations} /> */}</Col>
+        <Col>
+        <ul>
+          {translations.map((translation) => {
+            return <li key={translation.translatedText}>detected input language: {translation.detectedSourceLanguage} Your translation: {translation.translatedText} </li>
+          } )}
+        </ul>
+        </Col>
       </Row>
     </>
   );
 }
 
 export class LangParent extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.state = { language: 'am' };
-    
-    this.changeLanguage = this.changeLanguage.bind(this);
-  }
-  
-  changeLanguage(newLanguage) {
-    this.setState({
-      language: newLanguage
-    });
+  changeLanguage = (newLanguage) => {
+    this.props.setUserLang(newLanguage)
   }
 
   render() {
-    return <SetLang language={this.state.language} onChange={this.changeLanguage} />
+    return <SetLang language={this.props.userLang} onChange={this.changeLanguage} />
   }
 }
 
