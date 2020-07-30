@@ -1,6 +1,7 @@
 import React from "react";
 //import { Form } from "react-bootstrap";
 
+
 export class SetLang extends React.Component {
   handleChange(e) {
     const language = e.target.value;
@@ -14,7 +15,7 @@ export class SetLang extends React.Component {
   render() {
     return (
       <div>
-        <h1>translate to: {this.props.language}!</h1>
+        <h1 className="translateTitle">translating to: {this.props.language}</h1>
         <select id="languages" onChange={this.handleChange}>
           <option value="am">am</option>
           <option value="ar">ar</option>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Row, Col} from "react-bootstrap";
+import { Row, Col, Container} from "react-bootstrap";
+import "./translate.css"
 
 import API from "../utils/translateApi";
 import SearchInput from "../components/TranslateComp";
@@ -29,7 +30,9 @@ export default function Search() {
 
   return (
     <>
-      <Row>
+    <Container className="translateContainer">
+      <h1 class="translateTitle, setBold">Translator</h1>
+      <Row className="translateMain">
         <Col>
           <SearchInput
             search={search}
@@ -50,6 +53,7 @@ export default function Search() {
         </ul>
         </Col>
       </Row>
+      </Container>
     </>
   );
 }

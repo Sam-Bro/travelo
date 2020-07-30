@@ -1,0 +1,36 @@
+.currencyBody {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #84a9ac;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  
+  .convertTitle {
+    margin: 0;
+    margin-bottom: .5rem;
+    margin-top: 5rem;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .input {
+    border: 1px solid #333;
+    border-radius: .3em;
+    padding: .25rem;
+    width: 7em;
+  }
+  
+  select {
+    margin-left: .5rem;
+  }
+  
+  .equals {
+    font-weight: bold;
+    font-size: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }

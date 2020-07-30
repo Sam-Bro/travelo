@@ -1,0 +1,27 @@
+.translateTitle {
+    text-align: center;
+}
+
+.setBold {
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+#languages {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.translateContainer {
+    padding-top: 5rem;
+}
+
+.translateMain {
+    background-color: #84a9ac !important;
+    border-radius: 1rem;
+    padding: 10px;
+}

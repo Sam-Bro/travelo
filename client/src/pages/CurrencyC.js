@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
 import CurrencyRow from "../components/CurrencyRow";
-
+import { Container } from "react-bootstrap";
+import "./currency.css";
 const BASE_URL = "https://api.exchangeratesapi.io/latest";
 
 function App() {
@@ -53,25 +54,28 @@ function App() {
 
   return (
     <>
-      <h1>Convert</h1>
-      <CurrencyRow
-        currencyOptions={currencyOptions}
-        selectedCurrency={fromCurrency}
-        onChangeCurrency={(e) => setFromCurrency(e.target.value)}
-        onChangeAmount={handleFromAmountChange}
-        amount={fromAmount}
-      />
-      <section className="equals">=</section>
-      <CurrencyRow
-        currencyOptions={currencyOptions}
-        selectedCurrency={toCurrency}
-        onChangeCurrency={(e) => setToCurrency(e.target.value)}
-        onChangeAmount={handleToAmountChange}
-        amount={toAmount}
-      />
+      <Container>
+        <h1 className="convertTitle">Currency Converter</h1>
+        <section className="currencyBody">
+          <CurrencyRow
+            currencyOptions={currencyOptions}
+            selectedCurrency={fromCurrency}
+            onChangeCurrency={(e) => setFromCurrency(e.target.value)}
+            onChangeAmount={handleFromAmountChange}
+            amount={fromAmount}
+          />
+          <section className="equals">=</section>
+          <CurrencyRow
+            currencyOptions={currencyOptions}
+            selectedCurrency={toCurrency}
+            onChangeCurrency={(e) => setToCurrency(e.target.value)}
+            onChangeAmount={handleToAmountChange}
+            amount={toAmount}
+          />
+        </section>
+      </Container>
     </>
   );
 }
 
 export default App;
-
