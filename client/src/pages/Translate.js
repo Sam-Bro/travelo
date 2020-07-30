@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Row, Col, Form } from "react-bootstrap";
+import { Row, Col} from "react-bootstrap";
 
 import API from "../utils/translateApi";
 import SearchInput from "../components/TranslateComp";
@@ -8,7 +8,7 @@ import { SetLang } from "../components/setLangComp";
 export default function Search() {
   const [search, setSearch] = useState("");
   const [translations, setTranslation] = useState([]);
-  const [userLang, setUserLang] =useState("es")
+  const [userLang, setUserLang] =useState("am")
 
   const onSave = async (translation) => {
     API.saveTranslation(translation);
@@ -65,5 +65,3 @@ export class LangParent extends React.Component {
   }
 }
 
-
-// export default Translate

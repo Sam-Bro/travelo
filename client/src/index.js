@@ -6,7 +6,6 @@ import App from "./App";
 import Funds from "./pages/Funds";
 import Translate from "./pages/Translate";
 import CurrencyC from "./pages/CurrencyC";
-import registerServiceWorker from "./registerServiceWorker";
 
 const routing = (
     <Router>
@@ -22,7 +21,3 @@ const routing = (
 
 
 ReactDOM.render(routing, document.getElementById("root"));
-registerServiceWorker();
-
-
-

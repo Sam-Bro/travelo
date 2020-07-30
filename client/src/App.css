@@ -1,3 +1,6 @@
+body {
+  background-color: #E4E3E3 ;
+}
 .App {
   text-align: center;
 }
@@ -17,8 +20,36 @@
 .App-intro {
   font-size: large;
 }
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.navMainLink {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
 }
+
+/*coloured title in navbar*/
+.nav-title {
+  background-color: #84a9ac;
+  padding: 13px 20px;
+}
+.navbar-full {
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: #3b6978;
+}
+/* grey divider and padding between navbar links */
+.link-border {
+  border-right: 1px solid darkgrey;
+  border-left: 1px solid darkgrey;
+}
+.link-gap,
+.link-border {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.nav-link {
+  color: white !important;
+}
+.nav-link:hover {
+  color: #204051 !important;
+}
+

@@ -1,8 +1,7 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
-import { SetLang } from "../components/setLangComp";
 
-export default function SearchInput({ search, onSearchChange, onSearch, Language}) {
+export default function SearchInput({ search, onSearchChange, onSearch}) {
   return (
     <Form onSubmit={onSearch}>
       <Form.Group controlId="translate-in">
@@ -14,7 +13,7 @@ export default function SearchInput({ search, onSearchChange, onSearch, Language
         />
       </Form.Group >
       <Button variant="primary" type="submit">
-        Search
+        Translate
       </Button>
     </Form>
   );

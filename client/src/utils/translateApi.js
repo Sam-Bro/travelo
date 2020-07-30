@@ -19,7 +19,7 @@ export default {
       });
   
       req.form({
-        q: `${userInput}`,
+        q: userInput,
         target: userLang,
       });
   
@@ -34,7 +34,6 @@ export default {
         //let translateRes = res.body;
         resolve(res.body)
         console.log(res.body);
-        console.log(userLang);
         
       });
     })
