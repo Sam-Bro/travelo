@@ -52,6 +52,35 @@ text-align: center;
 }
 
 .yourBalance {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 1rem;
+  background-color: #84a9ac;
+}
+
+.balanceText {
+  padding-bottom: 1rem;
+  font-weight: bold;
+}
+
+.headerText {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.addTransacText {
+  font-size: 20px;
+}
+.translatorOutput {
+  min-height: 300px;
+  margin-top: 1.5rem;
+  padding-top: 2rem;
+  background-color: white;
+  border-radius: 1rem;
+}
+
+.center-content {
   text-align: center;
 }
 
