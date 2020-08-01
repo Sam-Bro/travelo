@@ -31,7 +31,7 @@ export default function Search() {
   return (
     <>
     <Container className="translateContainer">
-      <h1 class="translateTitle, setBold">Translator</h1>
+      <h1 className="translateTitle, setBold">Translator</h1>
       <Row className="translateMain">
         <Col>
           <SearchInput
