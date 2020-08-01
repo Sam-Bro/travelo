@@ -14,7 +14,7 @@ export class SetLang extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div class="translatingToTitle">
         <h1 className="translateTitle">translating to: {this.props.language}</h1>
         <select id="languages" onChange={this.handleChange}>
           <option value="am">am</option>

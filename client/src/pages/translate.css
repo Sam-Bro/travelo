@@ -21,6 +21,10 @@
     padding-top: 5rem;
 }
 
+.translateSize {
+    font-size: 22px;
+}
+
 .translateMain {
     background-color: #84a9ac !important;
     border-radius: 1rem;
@@ -29,5 +33,5 @@
 
 .translatedText {
     padding-top: 1rem;
-    font-size: 18px;
+    font-size: 24px;
 }

@@ -5,7 +5,7 @@ export default function SearchInput({ search, onSearchChange, onSearch}) {
   return (
     <Form onSubmit={onSearch}>
       <Form.Group controlId="translate-in">
-        <Form.Label>Text to translate</Form.Label>
+        <Form.Label className="translateSize">Text to translate</Form.Label>
         <Form.Control
           value={search}
           placeholder="input the phrase you want to translate"
